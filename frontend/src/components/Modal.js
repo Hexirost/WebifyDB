@@ -45,18 +45,51 @@ export default class CustomModal extends Component {
                 type="text"
                 id="todo-title"
                 name="title"
-                value={this.state.activeItem.title}
+                value={this.state.activeItem.name}
                 onChange={this.handleChange}
                 placeholder="Enter Todo Title"
               />
             </FormGroup>
             <FormGroup>
-              <Label for="todo-description">Description</Label>
+              <Label for="todo-description">Chapter</Label>
               <Input
                 type="text"
                 id="todo-description"
                 name="description"
-                value={this.state.activeItem.description}
+                value={this.state.activeItem.chapter_reveal}
+                onChange={this.handleChange}
+                placeholder="Enter Todo description"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="todo-description">Episode</Label>
+              <Input
+                type="text"
+                id="todo-description"
+                name="description"
+                value={this.state.activeItem.episode_reveal}
+                onChange={this.handleChange}
+                placeholder="Enter Todo description"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="todo-description">Year</Label>
+              <Input
+                type="text"
+                id="todo-description"
+                name="description"
+                value={this.state.activeItem.year_reveal}
+                onChange={this.handleChange}
+                placeholder="Enter Todo description"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="todo-description">Notes</Label>
+              <Input
+                type="text"
+                id="todo-description"
+                name="description"
+                value={this.state.activeItem.notes}
                 onChange={this.handleChange}
                 placeholder="Enter Todo description"
               />

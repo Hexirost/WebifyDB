@@ -33,7 +33,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      viewCompleted: false,
+      viewCompleted: "1",
       database_searchList: [],
       modal: false,
       activeItem: {
@@ -62,9 +62,9 @@ class App extends Component {
   handleSubmit = (item) => {
     this.toggle();
 
-    if (item.id) {
+    if (item.name) {
       axios
-        .put(`/api/database_search/${item.id}/`, item)
+        .put(`/api/database_search/${item.Name}/`, item)
         .then((res) => this.refreshList());
       return;
     }
@@ -80,7 +80,8 @@ class App extends Component {
   };
 
   createItem = () => {
-    const item = { title: "", description: "", completed: false };
+    // const item = { title: "", description: "", completed: false };
+    const item = { Name: "", ChapterReveal: "", Notes: "" };
 
     this.setState({ activeItem: item, modal: !this.state.modal });
   };
@@ -119,7 +120,7 @@ class App extends Component {
   renderItems = () => {
     const { viewCompleted } = this.state;
     const newItems = this.state.database_searchList.filter(
-      (item) => item.completed == viewCompleted
+      (item) => item.ChapterReveal != '1'
     );
 
     return newItems.map((item) => (
@@ -131,9 +132,9 @@ class App extends Component {
           className={`database_search-title mr-2 ${
             this.state.viewCompleted ? "completed-database_search" : ""
           }`}
-          title={item.description}
+          title={item.notes}
         >
-          {item.title}
+          {item.name}
         </span>
         <span>
           <button
